@@ -13,6 +13,8 @@ To start SubDima, you need the full paths of various files.
 The syntaxis to start SubDima is the following: <Initial Shell> <Path\To\SubDima_Launcher.bat> <Executing Shell>
 Example: C:\Windows\System32\CMD.exe E:\Files\SubDima\SubDima_Launcher.bat E:\AltShell\Shell.exe
 
+***
+
 ## TERMS OF USE AND ADDITIONAL INFORMATION
 
 ### General
