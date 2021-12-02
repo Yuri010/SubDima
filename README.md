@@ -18,8 +18,7 @@ Example: C:\Windows\System32\CMD.exe E:\Files\SubDima\SubDima_Launcher.bat E:\Al
 ## TERMS OF USE AND ADDITIONAL INFORMATION
 
 ### General
-"I", "me" and "the creator" indicate the initial coder
-of this script. "one" indicates the person executing.
+"I", "me" and "the creator" indicate the initial coder of this script. "one" indicates the person executing.
 If you have never heard of subdima, please delete it for your pc's safety.
 
 USE THIS SCRIPT AT YOUR OWN RISK AND RESPONSIBILITIES
@@ -27,7 +26,7 @@ USE THIS SCRIPT AT YOUR OWN RISK AND RESPONSIBILITIES
 ### About
 
 "the creator" grants you a non-exclusive, limited license to use the program on own property.
-Other machines should only be used with this script with the permission of the rightful owner of that pc 
+Other machines should only be used with this script with the permission of the rightful owner of that pc.
 EVEN THOUGH THE NAME IS AN ANAGRAM OF MANUAL DISTRIBUTION, THE CREATOR DOES NOT ENDORSE NOR SUPPORT THIS.
 The creator is not responsible to any damage to property, files and others. The one responsible is the "one" executing this script.
 
