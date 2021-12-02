@@ -8,5 +8,3 @@ Manually distributed > Manual Distribution > Anagram= Subdural Intimation > Shor
 Sadly, I lost the original version (and the source code). So I decided to make a version 2.0.
 Here it is!!
 
-## DISCLAIMER
-Will get added SoonTM
