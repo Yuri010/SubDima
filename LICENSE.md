@@ -13,7 +13,7 @@ You do NOT have the permission(s) to:
 2. Copy and / or publish this software as yours.
 3. Use this software for malicious intent.
 
-OTHERS PERMISSIONS THAT MAY RESEMBLE THESE IN OTHER WAYS DO NOT SUPERSEED THESE TERMS.
+OTHERS PERMISSIONS THAT MAY RESEMBLE THESE IN OTHER WAYS DO NOT SUPERSEDE THESE TERMS.
 
 ### Sharing
 If you would like to share this software, please refer the target to this repo instead of copying the files.
