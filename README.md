@@ -32,7 +32,7 @@ The creator is not responsible to any damage to property, files and others. The 
 
 ### LICENSING
 YOU MUST READ AND UNDERSTAND THE LICENSE IN THIS REPOSITORY.
-Link: https://github.com/Yuri010/SubDima/LICENSE.md/
+Link: https://github.com/Yuri010/SubDima/blob/main/LICENSE.md/
 
 ### PRIVACY
 This script does NOT collect ANY data of ANY kind.
