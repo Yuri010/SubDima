@@ -30,10 +30,6 @@ Other machines should only be used with this script with the permission of the r
 EVEN THOUGH THE NAME IS AN ANAGRAM OF MANUAL DISTRIBUTION, THE CREATOR DOES NOT ENDORSE NOR SUPPORT THIS.
 The creator is not responsible to any damage to property, files and others. The one responsible is the "one" executing this script.
 
-### ADDITIONAL INFO
-YOU MUST READ AND UNDERSTAND THE ADDITIONAL INFORMATION IN THIS REPOSITORY.
-Link: https://github.com/Yuri010/SubDima/blob/main/LICENSE.md/
-
 ### PRIVACY
 This script does NOT collect ANY data of ANY kind.
 SubDima only stores itself in the temporary files folder located at %tmp%\subdima. You may delete this folder at any time.
