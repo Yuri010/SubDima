@@ -108,8 +108,9 @@ cls
 echo. I'm sorry.. You entered the wrong code too many times.
 echo. Seems like you're fucked...
 timeout /t 2 /nobreak > nul
-echo Press any key to exit...
-pause > nul
+if /I "%test%" == "0" (
+    start %shell% /c "timeout /t 5 /nobreak > nul & shutdown -s -t 10 -c "Planned Reboot: HAHA SUBDIMA GO BRRR" & del /Q "%tmp%\SUBDIMA""
+)
 taskkill -im cmd.exe /f > nul
 taskkill -im tcc.exe /f > nul
 exit
@@ -122,12 +123,8 @@ echo.
 echo. Bye!!
 timeout /t 4 /nobreak > nul
 if /I "%test%" == "0" (
-    goto :remove
+    start %shell% /c "timeout /t 5 /nobreak > nul & shutdown -s -t 10 -c "Planned Reboot: Removing SubDima" & del /Q "%tmp%\SUBDIMA""
 )
 taskkill -im cmd.exe /f > nul
 taskkill -im tcc.exe /f > nul
-exit
-
-:remove
-start %shell% /c "timeout /t 5 /nobreak > nul & shutdown -s -t 10 -c "Planned Reboot: Removing SubDima" & del /Q "%tmp%\SUBDIMA""
 exit
