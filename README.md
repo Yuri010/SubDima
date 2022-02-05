@@ -29,6 +29,10 @@ USE THIS SCRIPT AT YOUR OWN RISK AND RESPONSIBILITIES
 Other machines should only be used with this script with the permission of the rightful owner of that pc.
 EVEN THOUGH THE NAME IS AN ANAGRAM OF MANUAL DISTRIBUTION, THE CREATOR DOES NOT ENDORSE NOR SUPPORT THIS.
 The creator is not responsible to any damage to property, files and others. The one responsible is the "one" executing this script.
+ 
+### LICENSING
+This repository and any files listed are licensed under the Creative Commons Attribution and ShareAlike License
+A copy of the license can be found at https://creativecommons.org/licenses/by-sa/4.0/ or in Licence.md
 
 ### PRIVACY
 This script does NOT collect ANY data of ANY kind.
