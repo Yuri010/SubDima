@@ -31,8 +31,7 @@ EVEN THOUGH THE NAME IS AN ANAGRAM OF MANUAL DISTRIBUTION, THE CREATOR DOES NOT 
 The creator is not responsible to any damage to property, files and others. The one responsible is the "one" executing this script.
  
 ### LICENSING
-This repository and any files listed are licensed under the Creative Commons Attribution and ShareAlike License
-A copy of the license can be found at https://creativecommons.org/licenses/by-sa/4.0/ or in Licence.md
+This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/ or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
 
 ### PRIVACY
 This script does NOT collect ANY data of ANY kind.
