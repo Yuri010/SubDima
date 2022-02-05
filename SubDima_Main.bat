@@ -108,17 +108,6 @@ cls
 echo. I'm sorry.. You entered the wrong code too many times.
 echo. Seems like you're fucked...
 timeout /t 2 /nobreak > nul
-::if /I "%test%" == "0" (
-::    wininit.exe
-::)
-::echo. Your PC should've crashed now...
-::echo.
-::echo. Ah well...
-::timeout /t 3 /nobreak > nul
-::if /I "%test%" == "0" (
-::wininit.exe
-    goto :remove
-::)
 echo Press any key to exit...
 pause > nul
 taskkill -im cmd.exe /f > nul
