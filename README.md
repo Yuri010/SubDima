@@ -6,12 +6,7 @@ I just came up with random things it *is*, and I discovered manually distributed
 Manually distributed > Manual Distribution > Anagram= Subdural Intimation > Short= SubDima.
 
 Sadly, I lost the original version (and the source code). So I decided to make a version 2.0.
-Here it is!!
-
-## DIY
-To start SubDima, you need the full paths of various files.
-The syntaxis to start SubDima is the following: <Initial Shell> <Path\To\SubDima_Launcher.bat> <Executing Shell>
-Example: C:\Windows\System32\CMD.exe E:\Files\SubDima\SubDima_Launcher.bat E:\AltShell\Shell.exe
+Here it is!
 
 ***
 
@@ -31,7 +26,7 @@ EVEN THOUGH THE NAME IS AN ANAGRAM OF MANUAL DISTRIBUTION, THE CREATOR DOES NOT 
 The creator is not responsible to any damage to property, files and others. The one responsible is the "one" executing this script.
  
 ### LICENSING
-This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/ or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+This work is licensed under the CIR-License, found at https://github.com/Yuri010/CIR-License
 
 ### PRIVACY
 This script does NOT collect ANY data of ANY kind.
