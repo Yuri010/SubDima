@@ -2,10 +2,6 @@
 ::
 :: Manual Distribution > Subdural Intimation > SubDima
 ::
-::=========================How to start=========================
-::
-:: <initial shell> <path\to\launcher> <executing shell>
-::
 ::==========================DISCLAIMER==========================
 ::
 :: ABOUT

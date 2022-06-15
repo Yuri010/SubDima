@@ -13,17 +13,6 @@ if "%errorlevel%" == "1" set test=0
 if "%1" == "copydone" goto :minimize
 if "%1" == "restart" goto :restart
 if "%1" == "min" goto :min
-echo %1 | findstr /I "exe" > %tmp%\shell.txt
-if /I "%errorlevel%" == "0" (
-set /p shell= < %tmp%\shell.txt
-)
-if /I "%errorlevel%" == "1" (
-    echo You need to specify a valid shell
-    echo.
-    echo Press any key to exit...
-    pause > nul
-    exit
-)
 if exist "%tmp%\SUBDIMA" (
 del /Q "%tmp%\SUBDIMA"
 rmdir /Q "%tmp%\SUBDIMA"
@@ -49,11 +38,11 @@ echo GOOD LUCK
 timeout /t 2 /nobreak > nul
 if /I "%test%" == "1" (
     echo This displays when test mode is on and the launcher is about to restart
-    start "%shell%" "%tmp%\SUBDIMA\SubDima_Launcher.bat" copydone tstmd
+    start "" "%tmp%\SUBDIMA\SubDima_Launcher.bat" copydone tstmd
     exit
 )
 if /I "%test%" == "0" (
-    start "%shell%" "%tmp%\SUBDIMA\SubDima_Launcher.bat" copydone
+    start "" "%tmp%\SUBDIMA\SubDima_Launcher.bat" copydone
     exit
 )
 
@@ -68,18 +57,17 @@ if /I "%test%" == "0" (
 
 :min
 if /I "%test%" == "1" (
-    start /w /max "%shell%" "%tmp%\SUBDIMA\SubDima_Main.bat" init %shell% tstmd
+    start /w /max "" "%tmp%\SUBDIMA\SubDima_Main.bat" init tstmd
 )
 if /I "%test%" == "0" (
-start /w /max "%shell%" "%tmp%\SUBDIMA\SubDima_Main.bat" init %shell%
+start /w /max "" "%tmp%\SUBDIMA\SubDima_Main.bat" init
 )
 goto :restart
 
 :restart
 if /I "%test%" == "1" (
-    start /w /max "%shell%" "%tmp%\SUBDIMA\SubDima_Main.bat" restart %shell% tstmd
+    start /w /max "" "%tmp%\SUBDIMA\SubDima_Main.bat" restart tstmd
 )
 if /I "%test%" == "0" (
-start /w /max "%shell%" "%tmp%\SUBDIMA\SubDima_Main.bat" restart %shell%
-)
+start /w /max "" "%tmp%\SUBDIMA\SubDima_Main.bat" restart
 goto :restart
