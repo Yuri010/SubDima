@@ -110,9 +110,6 @@ timeout /t 2 /nobreak > nul
 ::if /I "%test%" == "0" (
     ::payload
 ::)
-echo. Your PC should've crashed now...
-echo.
-echo. Ah well...
 timeout /t 3 /nobreak > nul
 goto :remove
 exit
