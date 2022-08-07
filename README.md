@@ -8,6 +8,14 @@ Manually distributed > Manual Distribution > Anagram= Subdural Intimation > Shor
 Sadly, I lost the original version (and the source code). So I decided to make a version 2.0.
 Here it is!
 
+## How To
+To start this script, simply execute the SubDima_Launcher.bat
+OPENING ANY OTHER FILES CAN HAVE UNFORSEEN CONSEQUENCES
+
+To start the script in test mode (disables payload and automatically removes the remaining temporary files after closing)
+1: Open a new CMD window in the directory where SubDima is stored
+2: execute ``SubDima_Launcher.bat tstmd``
+
 ***
 
 ## TERMS OF USE AND ADDITIONAL INFORMATION
