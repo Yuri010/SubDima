@@ -56,7 +56,7 @@ exit
 :firstinit
 echo Preparing first initialization...
 set attempts=3
-if /I "%test%" == "0" start "" /min "%tmp%\SUBDIMA\taskender.bat"
+if /I "%test%" == "0" start "" /min "%tmp%\SUBDIMA\taskender.bat" strt
 echo Generating random key...
 set key=%random%
 cls
