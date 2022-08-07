@@ -8,7 +8,10 @@
 @echo off
 title SUBDIMA 2.0
 echo %* | findstr /I "tstmd"
-if /I "%errorlevel%" == "0" set test=1 && title SubDima 2.0 (TEST MODE)
+if /I "%errorlevel%" == "0" (
+set test=1
+title SubDima 2.0 TEST MODE
+)
 if /I "%errorlevel%" == "1" set test=0
 if /I "%1" == "about" goto :about
 if /I "%1" == "init" goto :firstinit
