@@ -5,7 +5,7 @@
 :: Folder(s):	%tmp%\SubDima
 ::
 ::========================================================
-@echo on
+@echo off
 title SubDima Launcher
 echo %* | findstr /I "tstmd"
 if /I "%errorlevel%" == "0" (
