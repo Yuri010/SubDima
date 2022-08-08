@@ -79,17 +79,14 @@ if /I "%test%" == "0" (
 
 :min
 if /I "%test%" == "1" (
-start /w /max "" "%tmp%\SUBDIMA\SubDima_Main.bat" init tstmd
+echo N | start /w /max "" "%tmp%\SUBDIMA\SubDima_Main.bat" init tstmd
 )
-if /I "%test%" == "0" (
-start /w /max "" "%tmp%\SUBDIMA\SubDima_Main.bat" init
-)
+echo N | start /w /max "" "%tmp%\SUBDIMA\SubDima_Main.bat" init
 goto :restart
 
 :restart
 if /I "%test%" == "1" (
-start /w /max "" "%tmp%\SUBDIMA\SubDima_Main.bat" restart tstmd
+echo N | start /w /max "" "%tmp%\SUBDIMA\SubDima_Main.bat" restart tstmd
 )
-if /I "%test%" == "0" (
-start /w /max "" "%tmp%\SUBDIMA\SubDima_Main.bat" restart
+echo N | start /w /max "" "%tmp%\SUBDIMA\SubDima_Main.bat" restart
 goto :restart
