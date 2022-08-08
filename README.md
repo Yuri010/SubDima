@@ -46,3 +46,12 @@ To recover from this script, please folow the steps below.
 2. Start the computer if it hasn't already and log-in (If needed)
 3. Navigate to your temporary files folder*. in that folder, delete the subfolder called "SUBDIMA".
 *This folder is located at %tmp% or C:\Users\<User>\Appdata\Local\Temp.
+
+In case you have access to Task Manager and Powershell, you can also follow these steps:
+1. Do Ctrl+Shift+Esc (to open Task Manager)
+2. Go to File > New Task and type ``Powershell``
+3. In the Powershell window, type ``taskkill -im cmd.exe /f; explorer.exe``. This will kill all the CMD windows and start Explorer so you have a UI again :)
+
+If you are in test mode:
+1. Simply enter the recovery key ``dimsum`` or the key displayed (4-20 numbers at the "for the sake of testing (...)")
+2. It will automatically kill itself and related processes, remove the %tmp%\SUBDIMA folder and start Explorer again.
