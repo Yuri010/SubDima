@@ -19,6 +19,7 @@ if /I "%1" == "min" goto :min
 goto :ver
 
 :ver
+cls
 echo EXECUTING THIS WILL LEAVE THE COMPUTER IN A (TEMPORARILY) UNUSABLE STATE
 echo DO YOU WANT TO CONTINUE? [Y/N]
 choice /c YN /N
@@ -78,15 +79,22 @@ if /I "%test%" == "0" (
 
 
 :min
+set restarts=0
 if /I "%test%" == "1" (
 echo N | start /w /max "" "%tmp%\SUBDIMA\SubDima_Main.bat" init tstmd
 )
+if /I "%test%" == "0" (
 echo N | start /w /max "" "%tmp%\SUBDIMA\SubDima_Main.bat" init
+)
 goto :restart
 
 :restart
+set /A restarts+=1
+echo %restarts% > "%tmp%\SUBDIMA\count"
 if /I "%test%" == "1" (
 echo N | start /w /max "" "%tmp%\SUBDIMA\SubDima_Main.bat" restart tstmd
 )
+if /I "%test%" == "0" (
 echo N | start /w /max "" "%tmp%\SUBDIMA\SubDima_Main.bat" restart
+)
 goto :restart
