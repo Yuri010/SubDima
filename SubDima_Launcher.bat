@@ -41,10 +41,10 @@ rmdir /Q "%tmp%\SUBDIMA"
 mkdir "%tmp%\SUBDIMA" > nul
 cd "%tmp%\SUBDIMA" > nul
 cls
-echo Copying files... (0/4)
+echo Copying files... (1/4)
 copy /Y "%~dp0\SubDima_Main.bat" "%tmp%\SUBDIMA" > nul
 cls
-echo Copying files... (1/4)
+echo Copying files... (2/4)
 copy /Y "%~dp0\SubDima_Launcher.bat" "%tmp%\SUBDIMA" > nul
 cls
 echo Copying files... (3/4)
@@ -60,7 +60,6 @@ echo.
 echo GOOD LUCK
 timeout /t 2 /nobreak > nul
 if /I "%test%" == "1" (
-    echo This displays when test mode is on and the launcher is about to restart
     start "" "%tmp%\SUBDIMA\SubDima_Launcher.bat" copydone tstmd
     exit
 )

