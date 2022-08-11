@@ -9,28 +9,27 @@ Sadly, I lost the original version, so I decided to make a version 2.0.
 Here it is!
 
 ## How To
-To start this script, simply execute the SubDima_Launcher.bat
+To start this script, simply execute the SubDima_Launcher.bat\
 OPENING ANY OTHER FILES CAN HAVE UNFORSEEN CONSEQUENCES
 
-To start the script in test mode (disables payload and automatically removes the remaining temporary files after closing)
+To start the script in test mode (disables payload and automatically removes the remaining temporary files after closing):
 1. Open a new CMD window in the directory where SubDima is stored
 2. execute ``SubDima_Launcher.bat tstmd``
 
 ### RECOVERY
-To recover from this script, please folow the steps below. 
+**To recover from this script, please folow the steps below.** 
 1. Reboot your PC by clicking and / or holding the power button.
 2. Start the computer if it hasn't already and log-in (If needed)
-3. Navigate to your temporary files folder*. in that folder, delete the subfolder called "SUBDIMA".
-*This folder is located at %tmp% or C:\Users\<User>\Appdata\Local\Temp.
+3. Navigate to your temporary files folder (This folder is located at %tmp% or C:\Users\<User>\Appdata\Local\Temp) in that folder, delete the subfolder called "SUBDIMA".
 
-In case you have access to Task Manager and Powershell, you can also follow these steps:
+**In case you have access to Task Manager and Powershell, you can also follow these steps**:
 1. Do Ctrl+Shift+Esc (to open Task Manager)
 2. Go to File > New Task and type ``Powershell``
 3. In the Powershell window, type ``taskkill -im cmd.exe /f; explorer.exe``. This will kill all the CMD windows and start Explorer so you have a UI again :)
 
-If you are in test mode:
+**If you are in test mode**:
 1. Simply enter the recovery key ``dimsum`` or the key displayed (4-20 numbers at the "for the sake of testing (...)")
-2. It will automatically kill itself and related processes, remove the %tmp%\SUBDIMA folder and start Explorer again.
+2. It will automatically kill itself and remove the %tmp%\SUBDIMA. Then it starts Explorer again so you have a UI :)
 
 ***
 
