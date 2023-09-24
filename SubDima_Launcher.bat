@@ -13,25 +13,24 @@ set test=1
 title SubDima Launcher TEST MODE
 )
 if /I "%errorlevel%" == "1" set test=0
-if /I "%1" == "copydone" goto :minimize
+if /I "%1" == "copydone" goto :min
 if /I "%1" == "restart" goto :restart
-if /I "%1" == "min" goto :min
+if not DEFINED IS_MINIMIZED set IS_MINIMIZED=1 && start "" /min "%0" background & exit
 goto :ver
 
 :ver
-cls
-echo EXECUTING THIS WILL LEAVE THE COMPUTER IN A (TEMPORARILY) UNUSABLE STATE
-echo DO YOU WANT TO CONTINUE? [Y/N]
-choice /c YN /N
-if /I "%errorlevel%" GEQ "2" exit
-if /I "%errorlevel%" == "1" goto ver2
+cscript //NoLogo echo.vbs "EXECUTING THIS WILL LEAVE THE COMPUTER IN A (TEMPORARILY) UNUSABLE STATE\n\nDO YOU WANT TO CONTINUE?" "vbYesNo+vbExclamation+vbDefaultButton2+vbSystemModal" "SubDima"
+set result=%errorlevel%
+if /I "%errorlevel%" == "7" exit
+if /I "%errorlevel%" == "6" goto ver2
+exit
 
 :ver2
-cls
-echo ARE YOU VERY, VERY SURE YOU WANT TO CONTINUE? [Y/N]
-choice /c YN /N
-if /I "%errorlevel%" GEQ "2" exit
-if /I "%errorlevel%" == "1" goto continue
+cscript //NoLogo echo.vbs "ARE YOU VERY, VERY SURE YOU WANT TO CONTINUE?" "vbYesNo+vbExclamation+vbDefaultButton2+vbSystemModal" "SubDima"
+set result=%errorlevel%
+if /I "%errorlevel%" GEQ "7" exit
+if /I "%errorlevel%" == "6" goto continue
+exit
 
 :continue
 if exist "%tmp%\SUBDIMA" (
@@ -57,7 +56,7 @@ echo Copying files... (4/4) DONE
 echo.
 if /I "%test%" == "1" echo TEST MODE IS ON
 echo.
-echo GOOD LUCK
+cscript //NoLogo echo.vbs "GOOD LUCK!" "vbOKOnly+vbExclamation" "SubDima"
 timeout /t 2 /nobreak > nul
 if /I "%test%" == "1" (
     start "" "%tmp%\SUBDIMA\SubDima_Launcher.bat" copydone tstmd
@@ -67,15 +66,6 @@ if /I "%test%" == "0" (
     start "" "%tmp%\SUBDIMA\SubDima_Launcher.bat" copydone
     exit
 )
-
-:minimize
-if /I "%test%" == "1" (
-    if not DEFINED IS_MINIMIZED set IS_MINIMIZED=1 && start "" /min "%tmp%\SUBDIMA\SubDima_Launcher.bat" min tstmd & exit
-)
-if /I "%test%" == "0" (
-    if not DEFINED IS_MINIMIZED set IS_MINIMIZED=1 && start "" /min "%tmp%\SUBDIMA\SubDima_Launcher.bat" min & exit
-)
-
 
 :min
 set restarts=0
